@@ -33,6 +33,34 @@
       cursor: pointer;
       width: 100%;
     }
+
+    #feedbackField {
+      text-align: center;
+      margin: 20px;
+      padding: 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      min-height: 60px;
+    }
+
+    .feedback-instruction {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .feedback-devanagari {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c5530;
+      margin-bottom: 10px;
+    }
+
+    .feedback-romanized {
+      font-size: 18px;
+      color: #444;
+      font-style: italic;
+    }
   </style>
 </head>
 
@@ -57,7 +85,9 @@
     The style class for this particular element is "dirty-dozen-controls".
   -->
   <div class="dirty-dozen-controls">
-    <!-- Future control elements will be added here -->
+    <div id="feedbackField">
+      <div class="feedback-instruction">Click on an image to see the Devanagari script and romanized reading</div>
+    </div>
   </div>
 
   <script>
@@ -128,7 +158,10 @@
         img.src = images[cellIdx];
         img.alt = `Image ${cellIdx + 1}`;
         img.style.display = "block";
-        img.onclick = () => playSound(cellIdx);
+        img.onclick = () => {
+          playSound(cellIdx);
+          showFeedback(cellIdx);
+        };
 
         // Audio element
         const audio = document.createElement('audio');
@@ -156,6 +189,20 @@
         targetAudio.play();
       } else {
         console.error("Audio element not found for idx:", idx);
+      }
+    }
+
+    function showFeedback(idx) {
+      const feedbackField = document.getElementById('feedbackField');
+      if (feedbackField && idx >= 0 && idx < devanagari.length) {
+        feedbackField.innerHTML = `
+          <div class="feedback-devanagari">
+            ${devanagari[idx]}
+          </div>
+          <div class="feedback-romanized">
+            ${romanized[idx]}
+          </div>
+        `;
       }
     }
   </script>
