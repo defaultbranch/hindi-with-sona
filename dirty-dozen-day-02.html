@@ -13,7 +13,7 @@
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(14px, 4vmin, 18px);
+      font-size: max(14px, 4vmin);
 
       .page-container {
         display: flex;
@@ -39,14 +39,14 @@
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            font-size: clamp(12px, 3vmin, 16px);
+            font-size: max(12px, 3vmin);
 
             td {
               border: 1px solid #888;
               padding: 1em;
               text-align: center;
               width: 33%;
-              height: clamp(100px, 15vmin, 180px);
+              height: max(100px, 15vmin);
 
               img {
                 cursor: pointer;
@@ -66,28 +66,28 @@
 
           #feedbackField {
             text-align: center;
-            margin: clamp(10px, 4vmin, 25px);
-            padding: clamp(10px, 3vmin, 20px);
+            margin: max(10px, 4vmin);
+            padding: max(10px, 3vmin);
             border: 2px solid #ccc;
             border-radius: 10px;
             background-color: #f9f9f9;
-            min-height: clamp(50px, 8vmin, 80px);
+            min-height: max(50px, 8vmin);
           }
 
           .feedback-instruction {
-            font-size: clamp(14px, 4vmin, 20px);
+            font-size: max(14px, 4vmin);
             color: #666;
           }
 
           .feedback-devanagari {
-            font-size: clamp(20px, 6vmin, 36px);
+            font-size: max(20px, 6vmin);
             font-weight: bold;
             color: #2c5530;
             margin-bottom: 10px;
           }
 
           .feedback-romanized {
-            font-size: clamp(16px, 5vmin, 24px);
+            font-size: max(16px, 5vmin);
             color: #444;
             font-style: italic;
           }
