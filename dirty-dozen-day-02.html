@@ -82,6 +82,18 @@
       SOUND_DATA_9, SOUND_DATA_10, SOUND_DATA_11, SOUND_DATA_12
     ];
 
+    const devanagari = [
+      "भुट्टा", "केला", "गाजर", "हाथी",
+      "शिमला मिर्च", "चूल्हा", "टोकरी", "हवाई जहाज़",
+      "पाँच", "उठाना", "हथौड़ा", "रखना"
+    ];
+
+    const romanized = [
+      "bhutta", "kela", "gājar", "hāthī",
+      "shimlā mirch", "chūlḥā", "ṭokrī", "havāī jahāz",
+      "pāñch", "uṭhānā", "hathauṛā", "rakhna"
+    ];
+
     // Dynamically create the table rows/cells, fix closure issue by using cellIdx
     const table = document.getElementById('dozenTable');
     let idx = 0;
