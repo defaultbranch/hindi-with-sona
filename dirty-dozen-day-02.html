@@ -61,32 +61,74 @@
       color: #444;
       font-style: italic;
     }
+
+    /* Layout styles */
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .page-header {
+      background-color: #f8f9fa;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .page-main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 0;
+    }
+
+    .page-footer {
+      background-color: #f8f9fa;
+      padding: 10px 0;
+      position: sticky;
+      bottom: 0;
+      z-index: 100;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 
 <body>
 
-  <!--
-    The page has this heading on top, informing the user what this page is about.
-    This top heading should remain on top and should remain visible.
-  -->
-  <h1 style="text-align:center;">Dirty Dozen (Day 2)</h1>
+  <div class="page-container">
+    <!-- Header Section - Always visible on top -->
+    <div class="page-header">
+      <!--
+        The page has this heading on top, informing the user what this page is about.
+        This top heading should remain on top and should remain visible.
+      -->
+      <h1 style="text-align:center; margin: 0;">Dirty Dozen (Day 2)</h1>
+    </div>
 
-  <!--
-    The core element of the page is this table with vocabulary items.
-    The style class for this particular element is "dirty-dozen-table".
-  -->
-  <div class="dirty-dozen-table">
-    <table id="dozenTable"></table>
-  </div>
+    <!-- Main Content Area - Table in the middle -->
+    <div class="page-main">
+      <!--
+        The core element of the page is this table with vocabulary items.
+        The style class for this particular element is "dirty-dozen-table".
+      -->
+      <div class="dirty-dozen-table">
+        <table id="dozenTable"></table>
+      </div>
+    </div>
 
-  <!--
-    The element below allows the user to adjust the page behavior and to get feedback.
-    The style class for this particular element is "dirty-dozen-controls".
-  -->
-  <div class="dirty-dozen-controls">
-    <div id="feedbackField">
-      <div class="feedback-instruction">Click on an image to see the Devanagari script and romanized reading</div>
+    <!-- Footer Controls Section - Always visible at bottom -->
+    <div class="page-footer">
+      <!--
+        The element below allows the user to adjust the page behavior and to get feedback.
+        The style class for this particular element is "dirty-dozen-controls".
+      -->
+      <div class="dirty-dozen-controls">
+        <div id="feedbackField">
+          <div class="feedback-instruction">Click on an image to see the Devanagari script and romanized reading</div>
+        </div>
+      </div>
     </div>
   </div>
 
