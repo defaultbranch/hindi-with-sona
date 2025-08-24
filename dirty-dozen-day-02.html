@@ -54,7 +54,10 @@
               }
             }
           }
-        }
+
+          .highlight-animation {
+            transition: background-color 0.3s ease-in-out;
+          }
 
         .page-footer {
           background-color: #f8f9fa;
@@ -133,6 +136,7 @@
           <div id="wordField">
             <div class="feedback-instruction">Click on an image to see the Devanagari script and romanized reading</div>
           </div>
+          <button id="hintButton" onclick="highlightCurrentCell()" style="background: none; border: none; font-size: max(24px, 6vmin); cursor: pointer; padding: 10px; display: none;" title="Show hint">💡</button>
         </div>
       </div>
     </div>
@@ -194,6 +198,7 @@
 
     // Track the last selected word index
     let lastSelectedIdx = -1;
+    const tableCells = [];
 
     // Dynamically create the table rows/cells, fix closure issue by using cellIdx
     const table = document.getElementById('dozenTable');
@@ -203,6 +208,8 @@
       for (let col = 0; col < 3; col++) {
         let cellIdx = idx; // Capture a copy for closure!
         const td = document.createElement('td');
+        td.classList.add('highlight-animation');
+        tableCells[cellIdx] = td;
 
         // Image element
         const img = document.createElement('img');
@@ -246,6 +253,8 @@
 
     function showWord(idx) {
       const wordField = document.getElementById('wordField');
+      const hintButton = document.getElementById('hintButton');
+
       if (wordField && idx >= 0 && idx < devanagari.length) {
         wordField.innerHTML = `
           <div class="feedback-devanagari">
@@ -257,6 +266,19 @@
         `;
         wordField.style.cursor = 'pointer';
         wordField.onclick = () => playSound(idx);
+
+        // Show hint button when a word is displayed
+        hintButton.style.display = 'block';
+      }
+    }
+
+    function highlightCurrentCell() {
+      if (lastSelectedIdx >= 0 && lastSelectedIdx < tableCells.length) {
+        const cell = tableCells[lastSelectedIdx];
+        cell.style.backgroundColor = '#98FB98'; // mint green
+        setTimeout(() => {
+          cell.style.backgroundColor = '';
+        }, 1000);
       }
     }
 
