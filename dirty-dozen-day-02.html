@@ -192,6 +192,9 @@
       "pāñch", "uṭhānā", "hathauṛā", "rakhna"
     ];
 
+    // Track the last selected word index
+    let lastSelectedIdx = -1;
+
     // Dynamically create the table rows/cells, fix closure issue by using cellIdx
     const table = document.getElementById('dozenTable');
     let idx = 0;
@@ -209,6 +212,7 @@
         img.onclick = () => {
           playSound(cellIdx);
           showWord(cellIdx);
+          lastSelectedIdx = cellIdx;
         };
 
         // Audio element
@@ -251,13 +255,20 @@
             ${romanized[idx]}
           </div>
         `;
+        wordField.style.cursor = 'pointer';
+        wordField.onclick = () => playSound(idx);
       }
     }
 
     function selectRandomWord() {
-      const randomIdx = Math.floor(Math.random() * 12);
+      let randomIdx;
+      do {
+        randomIdx = Math.floor(Math.random() * 12);
+      } while (randomIdx === lastSelectedIdx && devanagari.length > 1);
+
       playSound(randomIdx);
       showWord(randomIdx);
+      lastSelectedIdx = randomIdx;
     }
   </script>
 </body>
