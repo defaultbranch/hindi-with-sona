@@ -18,7 +18,8 @@
       .page-container {
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        height: 100vh;
+        overflow: hidden;
 
         .page-header {
           background-color: #f8f9fa;
@@ -27,6 +28,7 @@
           top: 0;
           z-index: 100;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          flex-shrink: 0;
         }
 
         .page-main {
@@ -66,6 +68,7 @@
           bottom: 0;
           z-index: 100;
           box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+          flex-shrink: 0;
 
           #wordField {
             text-align: center;
@@ -131,9 +134,9 @@
         The style class for this particular element is "dirty-dozen-controls".
       -->
       <div class="dirty-dozen-controls">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 900px; margin: 0 auto; padding: 0 20px;">
           <button onclick="selectRandomWord()" style="background: none; border: none; font-size: max(24px, 6vmin); cursor: pointer; padding: 10px;" title="Random feedback">🎲</button>
-          <div id="wordField">
+          <div id="wordField" style="flex: 1; margin: 0 20px;">
             <div class="feedback-instruction">Click an image to learn a word. Click the dice to start the game.</div>
           </div>
           <button id="hintButton" onclick="highlightCurrentCell()" style="background: none; border: none; font-size: max(24px, 6vmin); cursor: pointer; padding: 10px; display: none;" title="Show hint">💡</button>
