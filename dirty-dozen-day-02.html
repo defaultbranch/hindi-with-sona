@@ -142,7 +142,7 @@
       -->
       <div class="dirty-dozen-controls">
         <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 900px; margin: 0 auto; padding: 0 20px;">
-          <button onclick="selectRandomWord()" style="background: none; border: none; font-size: max(24px, 6vmin); cursor: pointer; padding: 10px;" title="Random feedback">🎲</button>
+          <button id="diceButton" onclick="diceButtonHandler()" style="background: none; border: none; font-size: max(24px, 6vmin); cursor: pointer; padding: 10px;" title="Start game mode">🎲</button>
           <div id="wordField" style="flex: 1; margin: 0 20px;">
             <div class="feedback-instruction">Click an image to learn a word. Click the dice to start the game.</div>
           </div>
@@ -210,6 +210,51 @@
     let lastSelectedIdx = -1;
     const tableCells = [];
     let gameMode = false; // Track whether we're in game mode
+
+    function updateDiceButton() {
+      const diceButton = document.getElementById('diceButton');
+      if (!diceButton) return;
+      if (gameMode) {
+        diceButton.innerText = '📖';
+        diceButton.title = 'Back to study mode';
+      } else {
+        diceButton.innerText = '🎲';
+        diceButton.title = 'Start game mode';
+      }
+    }
+
+    function startGameMode() {
+      if (!gameMode) {
+        gameMode = true;
+        updateWordFieldForGame();
+        selectRandomWord();
+        updateDiceButton();
+      }
+    }
+
+    function cancelGameMode() {
+      if (gameMode) {
+        gameMode = false;
+        lastSelectedIdx = -1;
+        const wordField = document.getElementById('wordField');
+        if (wordField) {
+          wordField.innerHTML = '<div class="feedback-instruction">Click an image to learn a word. Click the dice to start the game.</div>';
+          wordField.style.cursor = 'default';
+          wordField.onclick = null;
+        }
+        const hintButton = document.getElementById('hintButton');
+        if (hintButton) hintButton.style.display = 'none';
+        updateDiceButton();
+      }
+    }
+
+    function diceButtonHandler() {
+      if (gameMode) {
+        cancelGameMode();
+      } else {
+        startGameMode();
+      }
+    }
 
     // Dynamically create the table rows/cells, fix closure issue by using cellIdx
     const table = document.getElementById('dozenTable');
@@ -347,6 +392,9 @@
         wordField.onclick = null;
       }
     }
+
+    // Call updateDiceButton on page load
+    window.addEventListener('DOMContentLoaded', updateDiceButton);
   </script>
 </body>
 
