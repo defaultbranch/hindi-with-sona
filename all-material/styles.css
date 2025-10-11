@@ -9,3 +9,7 @@
 body {
     font-family: 'Noto Sans', sans-serif;
 }
+
+.spaced-list li {
+    margin-bottom: 1rem;
+}
