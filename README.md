@@ -1,3 +1,5 @@
+# Command Line Cheat Sheet
+
 Batch-convert PNG to lossy JPG:
 
 ```
