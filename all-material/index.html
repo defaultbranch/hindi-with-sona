@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hindi with Sona</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function playAudio(audioFile) {
+            const audio = new Audio(audioFile);
+            audio.play();
+        }
+    </script>
 </head>
 <body>
     <!-- 
@@ -43,7 +49,11 @@
     <nav id="table-of-contents">
         <h2>Table of Contents</h2>
         <ul>
-            <li><a href="#common-phrases">Common Phrases</a></li>
+            <li><a href="#common-phrases">Common Phrases</a>
+                <ul>
+                    <li><a href="#common-phrases-1-10">Common Phrases 1-10</a></li>
+                </ul>
+            </li>
             <li><a href="#common-smalltalk">Common Smalltalk</a></li>
             <li><a href="#sentence-expansion">Sentence Expansion</a></li>
         </ul>
@@ -52,75 +62,83 @@
     <main>
         <section id="common-phrases">
             <h2>Common Phrases</h2>
-            <!-- 
-            COMMON PHRASES LIST STRUCTURE
             
-            Each phrase entry should follow this exact format:
-            <li>
-                <div class="hindi-devanagari">[Devanagari script]</div>
-                <div class="hindi-romanized">[Standard romanization with diacritics]</div>
-                <div class="hindi-english">[English translation]</div>
-            </li>
+            <section id="common-phrases-1-10">
+                <h3>Common Phrases 1-10</h3>
+                <!-- 
+                COMMON PHRASES LIST STRUCTURE
+                
+                Each phrase entry should follow this exact format:
+                <li>
+                    <div class="hindi-devanagari">[Devanagari script]</div>
+                    <div class="hindi-romanized">[Standard romanization with diacritics]</div>
+                    <div class="hindi-english">[English translation]</div>
+                </li>
+                
+                Guidelines for adding new phrases:
+                - Convert user's romanized input to proper Devanagari script
+                - Use standard IAST romanization with diacritics (ā, ī, ū, etc.)
+                - Provide accurate English translation
+                - Maintain numbered list structure
+                - Add new items at the end of the <ol> before the closing </ol>
+                -->
+                <ol>
+                    <li>
+                        <div class="hindi-devanagari">मुझे भूख लगी है <button class="audio-btn" onclick="playAudio('common-phrases/01-मुझे_भूख_लगी_है.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">mujhe bhūkh lagī hai</div>
+                        <div class="hindi-english">I am hungry</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">मुझे प्यास लगी है <button class="audio-btn" onclick="playAudio('common-phrases/02-मुझे_प्यास_लगी_है.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">mujhe pyās lagī hai</div>
+                        <div class="hindi-english">I am thirsty</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">मुझे नींद आ रही है <button class="audio-btn" onclick="playAudio('common-phrases/03-मुझे_नींद_आ_रही_है.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">mujhe nīnd ā rahī hai</div>
+                        <div class="hindi-english">I am sleepy</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">
+                            मैं थका हूँ <button class="audio-btn" onclick="playAudio('common-phrases/04a-मैं_थका_हूँ.mp3')">▶️</button> / 
+                            मैं थकी हूँ <button class="audio-btn" onclick="playAudio('common-phrases/04b-मैं_थकी_हूँ.mp3')">▶️</button>
+                        </div>
+                        <div class="hindi-romanized">maiṁ thakā hūṁ / maiṁ thakī hūṁ</div>
+                        <div class="hindi-english">I am tired (masculine / feminine)</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">मेरा पेट भर गया <button class="audio-btn" onclick="playAudio('common-phrases/05-मेरा_पेट_भर_गया.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">merā peṭ bhar gayā</div>
+                        <div class="hindi-english">My stomach is full / I am full</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">और लीजिए <button class="audio-btn" onclick="playAudio('common-phrases/06-और_लीजिए.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">aur līji​ye</div>
+                        <div class="hindi-english">Please take more / Have some more</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">नहीं, बस <button class="audio-btn" onclick="playAudio('common-phrases/07-नहीं,_बस.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">nahīṁ, bas</div>
+                        <div class="hindi-english">No, enough / No, that's enough</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">कुछ और? <button class="audio-btn" onclick="playAudio('common-phrases/08-कुछ_और%3F.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">kuch aur?</div>
+                        <div class="hindi-english">Something more? / Anything else?</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">आपको क्या चाहिए? <button class="audio-btn" onclick="playAudio('common-phrases/09-आपको_क्या_चाहिए%3F.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">āpko kyā cāhie?</div>
+                        <div class="hindi-english">What do you want? / What would you like?</div>
+                    </li>
+                    <li>
+                        <div class="hindi-devanagari">थोड़ा पानी <button class="audio-btn" onclick="playAudio('common-phrases/10-थोड़ा_पानी.mp3')">▶️</button></div>
+                        <div class="hindi-romanized">thoṛā pānī</div>
+                        <div class="hindi-english">A little water</div>
+                    </li>
+                </ol>
+            </section>
             
-            Guidelines for adding new phrases:
-            - Convert user's romanized input to proper Devanagari script
-            - Use standard IAST romanization with diacritics (ā, ī, ū, etc.)
-            - Provide accurate English translation
-            - Maintain numbered list structure
-            - Add new items at the end of the <ol> before the closing </ol>
-            -->
-            <ol>
-                <li>
-                    <div class="hindi-devanagari">मुझे भूख लगी है</div>
-                    <div class="hindi-romanized">mujhe bhūkh lagī hai</div>
-                    <div class="hindi-english">I am hungry</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">मुझे प्यास लगी है</div>
-                    <div class="hindi-romanized">mujhe pyās lagī hai</div>
-                    <div class="hindi-english">I am thirsty</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">मुझे नींद आ रही है</div>
-                    <div class="hindi-romanized">mujhe nīnd ā rahī hai</div>
-                    <div class="hindi-english">I am sleepy</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">मैं थका हूँ / मैं थकी हूँ</div>
-                    <div class="hindi-romanized">maiṁ thakā hūṁ / maiṁ thakī hūṁ</div>
-                    <div class="hindi-english">I am tired (masculine / feminine)</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">मेरा पेट भर गया</div>
-                    <div class="hindi-romanized">merā peṭ bhar gayā</div>
-                    <div class="hindi-english">My stomach is full / I am full</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">और लीजिए</div>
-                    <div class="hindi-romanized">aur līji​ye</div>
-                    <div class="hindi-english">Please take more / Have some more</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">नहीं, बस</div>
-                    <div class="hindi-romanized">nahīṁ, bas</div>
-                    <div class="hindi-english">No, enough / No, that's enough</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">कुछ और?</div>
-                    <div class="hindi-romanized">kuch aur?</div>
-                    <div class="hindi-english">Something more? / Anything else?</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">आपको क्या चाहिए?</div>
-                    <div class="hindi-romanized">āpko kyā cāhie?</div>
-                    <div class="hindi-english">What do you want? / What would you like?</div>
-                </li>
-                <li>
-                    <div class="hindi-devanagari">थोड़ा पानी</div>
-                    <div class="hindi-romanized">thoṛā pānī</div>
-                    <div class="hindi-english">A little water</div>
-                </li>
-            </ol>
             <p><a href="#table-of-contents">Back to Table of Contents</a></p>
         </section>
         
