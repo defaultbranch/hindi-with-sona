@@ -52,11 +52,38 @@
     <main>
         <section id="common-phrases">
             <h2>Common Phrases</h2>
+            <!-- 
+            COMMON PHRASES LIST STRUCTURE
+            
+            Each phrase entry should follow this exact format:
+            <li>
+                <div class="hindi-devanagari">[Devanagari script]</div>
+                <div class="hindi-romanized">[Standard romanization with diacritics]</div>
+                <div class="hindi-english">[English translation]</div>
+            </li>
+            
+            Guidelines for adding new phrases:
+            - Convert user's romanized input to proper Devanagari script
+            - Use standard IAST romanization with diacritics (ā, ī, ū, etc.)
+            - Provide accurate English translation
+            - Maintain numbered list structure
+            - Add new items at the end of the <ol> before the closing </ol>
+            -->
             <ol>
                 <li>
-                    <div>मुझे भूख लगी है</div>
-                    <div>mujhe bhūkh lagī hai</div>
-                    <div>I am hungry</div>
+                    <div class="hindi-devanagari">मुझे भूख लगी है</div>
+                    <div class="hindi-romanized">mujhe bhūkh lagī hai</div>
+                    <div class="hindi-english">I am hungry</div>
+                </li>
+                <li>
+                    <div class="hindi-devanagari">मुझे प्यास लगी है</div>
+                    <div class="hindi-romanized">mujhe pyās lagī hai</div>
+                    <div class="hindi-english">I am thirsty</div>
+                </li>
+                <li>
+                    <div class="hindi-devanagari">मुझे नींद आ रही है</div>
+                    <div class="hindi-romanized">mujhe nīnd ā rahī hai</div>
+                    <div class="hindi-english">I am sleepy</div>
                 </li>
             </ol>
             <p><a href="#table-of-contents">Back to Table of Contents</a></p>
